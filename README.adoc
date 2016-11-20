@@ -61,15 +61,20 @@ mvn -Dskip.danhaywood-mavenmixin-cucumberreporting
 == How to Use
 
 
-The plugin is bound to Maven's `verify` phase.
-Therefore use:
+The plugin is bound to Maven's `verify` phase:
 
-* `mvn verify` +
-+
-This will generate a report based on the contents of `target/cucumber.json` file, expected to be created by any prior BDD specs.
+[source,bash]
+----
+mvn verify
+----
+
+This will generate a report in the `target/cucumber-reports/cucumber-html-reports` directory;  `overview-features.html` is the top-level page to view.
+This directory can then be copied by a post-build task within continuous integration pipeline in order to provide feedback to the development team.
+
 
 [TIP]
 ====
+The report is based on the contents of `target/cucumber.json` file, expected to be created by any prior BDD specs.
 Use the link:https://github.com/danhaywood/java-mavenmixin-surefire[danhaywood/mavenmixin-surefire] maven mixin to configure the surefire plugin to run any BDD specs.
 ====
 
