@@ -54,7 +54,7 @@ and: +
 </build>
 ----
 
-* add the following to the `pom.xml` of the consuming module (containing tests of any sort): +
+* add the following to the `pom.xml` of the consuming module (containing the BDD specs): +
 +
 [source,xml]
 ----
