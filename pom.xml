@@ -39,22 +39,22 @@
         
     <profiles>
         <profile>
-            <id>danhaywood-mavenmixin-cucumberreporting</id>
+            <id>mavenmixin-cucumberreporting</id>
             <activation>
                 <property>
-                    <name>!skip.danhaywood-mavenmixin-cucumberreporting</name>
+                    <name>!skip.mavenmixin-cucumberreporting</name>
                 </property>
             </activation>
             <properties>
-                <cucumber-reporting.version>3.2.0</cucumber-reporting.version>
-                <log4j.version>2.7</log4j.version>
+                <maven-cucumber-reporting.version>3.2.0</maven-cucumber-reporting.version>
+                <maven-cucumber-reporting.dependency.log4j.version>2.7</maven-cucumber-reporting.dependency.log4j.version>
             </properties>
             <build>
                 <plugins>
                     <plugin>
                         <groupId>net.masterthought</groupId>
                         <artifactId>maven-cucumber-reporting</artifactId>
-                        <version>${cucumber-reporting.version}</version>
+                        <version>${maven-cucumber-reporting.version}</version>
                         <executions>
                             <execution>
                                 <id>execution</id>
@@ -73,19 +73,19 @@
                             <dependency>
                                 <groupId>org.apache.logging.log4j</groupId>
                                 <artifactId>log4j-api</artifactId>
-                                <version>${log4j.version}</version>
+                                <version>${maven-cucumber-reporting.dependency.log4j.version}</version>
                             </dependency>
                             <dependency>
                                 <groupId>org.apache.logging.log4j</groupId>
                                 <artifactId>log4j-core</artifactId>
-                                <version>${log4j.version}</version>
+                                <version>${maven-cucumber-reporting.dependency.log4j.version}</version>
                             </dependency>
 
                             <dependency>
                                 <!-- workaround to not call shutdown hook -->
                                 <groupId>org.apache.logging.log4j</groupId>
                                 <artifactId>log4j-web</artifactId>
-                                <version>${log4j.version}</version>
+                                <version>${maven-cucumber-reporting.dependency.log4j.version}</version>
                             </dependency>
                         </dependencies>
                     </plugin>

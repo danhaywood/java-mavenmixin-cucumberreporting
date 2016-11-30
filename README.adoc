@@ -23,7 +23,33 @@ This module was initially developed for use within link:http://isis.apache.org[A
 
 To configure:
 
-* add the following to the `pom.xml` of the module(s) containing tests (of any sort): +
+* copy and paste the following into either the `pom.xml` of the consuming module or (better still) the `pom.xml` of the top-level parent of the consuming module: +
++
+[source,xml]
+----
+<properties>
+    ...
+    <mavenmixin-cucumberreporting.version>0.0.2</mavenmixin-cucumberreporting.version>
+    <maven-cucumber-reporting.dependency.log4j.version>2.7</maven-cucumber-reporting.dependency.log4j.version>
+    ...
+</properties>
+----
++
+and: +
++
+[source,xml]
+----
+<build>
+    <pluginManagement>
+        <plugins>
+            ...
+            ...
+        </plugins>
+    </pluginManagement>
+</build>
+----
+
+* add the following to the `pom.xml` of the consuming module (containing tests of any sort): +
 +
 [source,xml]
 ----
@@ -39,7 +65,7 @@ To configure:
                     <mixin>
                         <groupId>com.danhaywood.mavenmixin</groupId>
                         <artifactId>cucumberreporting</artifactId>
-                        <version>0.0.1</version>
+                        <version>${mavenmixin-cucumberreporting.version}</version>
                     </mixin>
                 </mixins>
             </configuration>
@@ -54,7 +80,7 @@ To disable the (profile contributed by this) mixin, pass the following system pr
 
 [source,bash]
 ----
-mvn -Dskip.danhaywood-mavenmixin-cucumberreporting
+mvn -Dskip.mavenmixin-cucumberreporting
 ----
 
 
@@ -88,6 +114,7 @@ None currently
 
 == Change Log
 
+* `0.0.2` - updates README for properties and plugin management, shortens property names and profile id
 * `0.0.1` - first release.
 
 
@@ -146,8 +173,8 @@ For example:
 
 [source]
 ----
-sh release.sh 0.0.1 \
-              0.0.2-SNAPSHOT \
+sh release.sh 0.0.2 \
+              0.0.3-SNAPSHOT \
               dan@haywood-associates.co.uk \
               "this is not really my passphrase"
 ----
@@ -167,7 +194,7 @@ If the script completes successfully, then push changes:
 [source]
 ----
 git push origin master
-git push origin 0.0.1
+git push origin 0.0.2
 ----
 
 If the script fails to complete, then identify the cause, perform a `git reset --hard` to start over and fix the issue before trying again.
