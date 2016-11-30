@@ -43,6 +43,11 @@ and: +
     <pluginManagement>
         <plugins>
             ...
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>${maven-cucumber-reporting.version}</version>
+            </plugin>
             ...
         </plugins>
     </pluginManagement>
